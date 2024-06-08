@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, confu
 
 # Function to load data from GitHub
 def load_data_from_github():
-    base_url = "https://raw.githubusercontent.com/YummyAmy/ML-and-Exploratory-Data-Analysis-Bootcamp/main/archive%20(3)/"
+    base_url = "https://raw.githubusercontent.com/YummyAmy/Decision-Modeling/main/archive%20(3)/"
     file_paths = {
         'circuits': base_url + 'circuits.csv',
         'constructor_results': base_url + 'constructor_results.csv',
@@ -306,7 +306,7 @@ with tab2:
 
 # Call the function
 if __name__ == '__main__':
-    st.set_page_config(page_title="Machine Learning and Exploratory Data Analysis Platform", layout="wide")
+    st.set_page_config(page_title="Home", layout="wide")
 
 # def week2():
 #    st.markdown("# Week 2")
