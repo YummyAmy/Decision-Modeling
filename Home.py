@@ -304,9 +304,9 @@ with tab2:
     plot_tree(model, feature_names=features, class_names=['Not Win', 'Win'], filled=True, rounded=True, fontsize=10)
     st.pyplot(plt)
 
-# Call the function
-if __name__ == '__main__':
-    st.set_page_config(page_title="Home", layout="wide")
+# # Call the function
+# if __name__ == '__main__':
+#     st.set_page_config(page_title="Home", layout="wide")
 
 # def week2():
 #    st.markdown("# Week 2")
