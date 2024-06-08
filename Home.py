@@ -41,18 +41,13 @@ st.set_page_config(
 )
 
 # Tabs at the top
-tab1, tab2, tab3 = st.tabs(["Home", "Decision Modeling with Formula 1 Datasets", "Airbnb Listings Analysis"])
+tab1, tab2 = st.tabs(["Home", "Decision Modeling with Formula 1 Datasets"])
 
 with tab1:
-    st.markdown("# Machine Learning and Exploratory Data Analysis Platform")
+    st.markdown("# Decision and Predictive Modeling with Formula 1 data")
     st.write("""
-        This platform hosts multiple exploratory data analysis projects:
-        1. **Decision Modeling on Formula 1 Drivers**
-        2. **Airbnb Listings Analysis**
-    """)
-    st.write("""
-        ## F1 Driver Performance Analysis
-        Creating a decision model to support the hypothesis on Formula 1 drivers' performances. This section includes metrics such as win rates, race participation, and performance over time. It leverages regression models to predict win rates and provides insightful visualizations.
+        ### F1 Driver Performance Analysis
+        Creating a decision model to support the hypothesis on Formula 1 drivers' performances. This includes metrics such as win rates, race participation, and performance over time. It leverages regression models to predict win rates and provides insightful visualizations. A decision model was created to predict factors that affect driver's performance.
     """)
 
     try:
@@ -62,44 +57,16 @@ with tab1:
     except FileNotFoundError:
         st.error("F1 image not found. Please check the file path.")
 
-    st.write("""
-        ## Airbnb Listings Analysis
-        This analysis helps visitors make informed choices about Airbnb listings in Amsterdam by examining various aspects such as price, location, and availability. It includes interactive visualizations and filter options to explore the data.
-    """)
-
-    try:
-        img_airbnb = Image.open("Images/Luxury-Airbnb-Apartment-Amsterdam.jpg")
-        new_image_airbnb = img_airbnb.resize((800, 400))
-        st.image(new_image_airbnb, caption='Luxury Airbnb apartment', use_column_width="always")
-    except FileNotFoundError:
-        st.error("Airbnb image not found. Please check the file path.")
-
     st.markdown(
         """
         ### Summary of Projects:
-        ## F1 Driver Performance Analysis
+        #### F1 Driver Performance Analysis
         - Exploratory Analysis of Formula 1 datasets
         - Correlation Matrices of datasets
         - Evaluating driver performance metrics
-        - Regression models to predict win rates
         - Visualizations of driver statistics and performance trends
-        - Export functionality for top driver data
-
-        ## Airbnb Listings Analysis
-        ### Week 1
-        - Exploratory data analysis using Numpy
-        - Data cleaning and analysis
-        - Exploring Amsterdam Airbnb dataset using filters (location and price range)
-        - Download option for filtered data
-        
-        ### Week 2
-        - Exploratory data analysis using Pandas
-        - Interactive visuals for Airbnb listing using filters
-        - Map visualization
-        - Multiselect filter options
-        - Theme and multi-page configuration
-        - Download option for filtered CSV data
-        - Web app development and deployment
+        - Regression models to predict win rates
+        - Export functionality for top driver data    
         """
     )
 
@@ -109,7 +76,6 @@ with tab1:
     st.sidebar.markdown("[Clicked](https://www.clicked.com/browse-experiences)")
     # st.sidebar.markdown('<a href="mailto:ameikpe@yahoo.com">E-mail</a>', unsafe_allow_html=True)
     # st.sidebar.markdown("[Tableau Profile](https://public.tableau.com/app/profile/amyu)")
-    st.sidebar.markdown("[CoRise Course](https://uplimit.com/course/intro-to-numpy-and-pandas)")
     # st.markdown(hide_decoration_bar_style, unsafe_allow_html=True)
 
 # Tab 2: F1 Analysis
