@@ -1,0 +1,11 @@
+[theme]
+primaryColor = "#FF7F7F"  # Faint Red for main app
+backgroundColor = "#FFFFFF"  # Background color
+secondaryBackgroundColor = "#87CEEB"  # Sky Blue for sidebar
+textColor = "#000000"  # Text color
+font = "monospace"  # Font options: "sans serif", "serif", "monospace"
+
+# [fonts]
+# sans_serif = "Arial, Helvetica, sans-serif"
+# serif = "Georgia, serif"
+# monospace = "Courier New, monospace"
