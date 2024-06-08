@@ -229,6 +229,24 @@ with tab2:
 
     # Linear regression
     st.subheader("Linear Regression")
+    # Calculate the total number of races for each driver
+    driver_races = dataframes['results'].groupby('driverId')['raceId'].count().reset_index()
+    driver_races.rename(columns={'raceId': 'total_races'}, inplace=True)
+    
+    # Calculate the total number of wins for each driver
+    driver_wins = dataframes['results'][dataframes['results']['positionOrder'] == 1].groupby('driverId')['raceId'].count().reset_index()
+    driver_wins.rename(columns={'raceId': 'total_wins'}, inplace=True)
+    
+    # Merge total races and total wins dataframes
+    driver_performance = driver_races.merge(driver_wins, on='driverId', how='left')
+    driver_performance['total_wins'].fillna(0, inplace=True)  # Fill NaNs with 0 for drivers with no wins
+    
+    # Calculate win rate
+    driver_performance['win_rate'] = driver_performance['total_wins'] / driver_performance['total_races']
+    
+    # Merge with drivers dataset to get driver details
+    driver_performance = driver_performance.merge(dataframes['drivers'][['driverId', 'forename', 'surname', 'dob']], on='driverId')
+
     driver_performance['dob'] = pd.to_datetime(driver_performance['dob'])
     driver_performance['age'] = 2024 - driver_performance['dob'].dt.year
     features = ['total_races', 'total_wins', 'age']
