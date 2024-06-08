@@ -46,8 +46,11 @@ tab1, tab2 = st.tabs(["Home", "Decision Modeling with Formula 1 Datasets"])
 with tab1:
     st.markdown("# Decision and Predictive Modeling with Formula 1 data")
     st.write("""
-        ### F1 Driver Performance Analysis
-        Creating a decision model to support the hypothesis on Formula 1 drivers' performances. This includes metrics such as win rates, race participation, and performance over time. It leverages regression models to predict win rates and provides insightful visualizations. A decision model was created to predict factors that affect driver's performance.
+        #### Formula 1 Driver Performance Analysis
+        Welcome to the Decision Modeling in Formula 1 app! 
+        This platform provides an in-depth analysis of Formula 1 drivers' performance metrics, including win rates, race participation, and performance trends over time. 
+        Leveraging regression models and decision tree classifiers, the app offers insights into factors affecting driver success, helping you understand and predict key performance outcomes in F1 racing. 
+        Explore various visualizations and interactive features to gain a comprehensive view of F1 decision modeling.
     """)
 
     try:
@@ -59,8 +62,7 @@ with tab1:
 
     st.markdown(
         """
-        ### Summary of Projects:
-        #### F1 Driver Performance Analysis
+        #### Summary:
         - Exploratory Analysis of Formula 1 datasets
         - Correlation Matrices of datasets
         - Evaluating driver performance metrics
@@ -105,7 +107,7 @@ with tab2:
     st.subheader("Driver Nationality Distribution")
     drivers = dataframes['drivers']
     nationality_distribution = drivers['nationality'].value_counts()
-    plt.figure(figsize=(8, 4))
+    plt.figure(figsize=(10, 4))
     sns.barplot(x=nationality_distribution.values, y=nationality_distribution.index)
     plt.title('Nationality Distribution of Drivers')
     plt.xlabel('Number of drivers')
@@ -121,7 +123,7 @@ with tab2:
     driver_names = top_10_drivers_details['forename'] + ' ' + top_10_drivers_details['surname']
     driver_points = top_10_drivers_details['points']
 
-    plt.figure(figsize=(6, 3))
+    plt.figure(figsize=(5, 3))
     plt.barh(driver_names, driver_points, color='skyblue')
     plt.xlabel('Total Points')
     plt.ylabel('Drivers')
@@ -180,7 +182,7 @@ with tab2:
     top_5_drivers = top_5_drivers.merge(drivers[['driverId', 'forename', 'surname']], on='driverId')
     top_5_drivers = top_5_drivers.sort_values(by='win_rate', ascending=True)
 
-    plt.figure(figsize=(5, 4))
+    plt.figure(figsize=(4, 3))
     sns.barplot(x='surname', y='win_rate', data=top_5_drivers, palette='viridis')
     plt.title('Win Rates of Top 5 Drivers')
     plt.xlabel('Driver')
@@ -194,7 +196,7 @@ with tab2:
     results_numeric = results.select_dtypes(include=['float64', 'int64'])
     corr = results_numeric.corr()
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(7, 5))
     ax = sns.heatmap(corr, annot=False, cmap='coolwarm', linewidths=0.5, cbar_kws={"shrink": .8})
     for i in range(corr.shape[0]):
         for j in range(corr.shape[1]):
@@ -216,7 +218,7 @@ with tab2:
     correlation = performance['avg_pit_stop_duration'].corr(performance['positionOrder'])
     st.write(f"Correlation between Average Pit Stop Duration and Race Position Order: {correlation}")
 
-    plt.figure(figsize=(8, 4))
+    plt.figure(figsize=(6, 4))
     plt.scatter(performance['avg_pit_stop_duration'], performance['positionOrder'], alpha=0.6)
     plt.title('Correlation Between Average Pit Stop Duration and Race Position Order')
     plt.xlabel('Average Pit Stop Duration (milliseconds)')
