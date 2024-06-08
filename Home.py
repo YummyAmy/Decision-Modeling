@@ -35,8 +35,8 @@ def load_data_from_github():
 
 # Set page configuration
 st.set_page_config(
-    page_title="Home",
-    layout="wide",
+    page_title="Home", 
+    layout="wide", 
     initial_sidebar_state="expanded"
 )
 
