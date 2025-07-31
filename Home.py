@@ -73,7 +73,7 @@ with tab1:
     )
 
     st.sidebar.title("Connect")
-    st.sidebar.markdown("[Linktree](https://linktr.ee/ameusifoh)")
+    st.sidebar.markdown("[Linktree](https://linktr.ee/amyusifoh)")
     st.sidebar.markdown("[LinkedIn](https://www.linkedin.com/in/ameti-obong-u-395a25111/)")
     st.sidebar.markdown("[Clicked](https://www.clicked.com/browse-experiences)")
     # st.sidebar.markdown('<a href="mailto:ameikpe@yahoo.com">E-mail</a>', unsafe_allow_html=True)
